@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>{{title}}</title>
+<style>
+body{font-family:"Noto Sans JP",sans-serif;margin:36px;color:#111}.doc{max-width:760px;margin:auto}h1{text-align:center;letter-spacing:.2em}.top{display:flex;justify-content:space-between;margin-top:26px}.to{font-size:18px;border-bottom:1px solid #111;display:inline-block;padding-right:40px}.meta{text-align:right;font-size:13px;line-height:1.8}table{width:100%;border-collapse:collapse;margin-top:28px}th,td{border:1px solid #999;padding:10px}th{background:#f2f2f2}.right{text-align:right}.total{font-size:18px;font-weight:bold}.note{margin-top:24px;line-height:1.7}.stamp{margin-top:36px;text-align:right}.box{display:inline-block;border:1px solid #999;width:90px;height:90px;text-align:center;line-height:90px;color:#777}button{padding:8px 12px}@media print{button{display:none}}</style>
+</head><body><button onclick="window.print()">PDF保存/印刷</button><div class="doc">
+<h1>{{title}}</h1>
+<div class="top"><div><div class="to">{{item.client}} 御中</div><p>下記の通り{% if doc_type=="delivery" %}納品{% else %}ご請求{% endif %}申し上げます。</p></div>
+<div class="meta">発行日：{{updated}}<br>管理番号：{{item.code}}<br>株式会社M.T DICE<br>代表取締役　野口修造</div></div>
+<table><thead><tr><th>品目</th><th>素材</th><th>加工内容</th><th>数量</th><th>金額</th></tr></thead>
+<tbody><tr><td>{{item.item}}</td><td>{{item.material}}</td><td>{{item.work}}</td><td class="right">{{item.qty}}</td><td class="right">{{item.amount|yen}}</td></tr>
+<tr><td colspan="4" class="right total">合計（税込）</td><td class="right total">{{item.amount|yen}}</td></tr></tbody></table>
+<div class="note">納品予定日／入金予定日：{{item.due}}<br>備考：{{item.memo}}</div>
+<div class="stamp">確認印欄<br><div class="box">社印</div></div>
+</div></body></html>

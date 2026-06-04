@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M.T DICE｜実用版v2</title>
+<style>:root{--bg:#f4f6f9;--nav:#1f2937;--nav2:#111827;--primary:#2563eb;--primary2:#1d4ed8;--text:#1f2937;--muted:#6b7280;--line:#dbe2ea;--card:#fff;--soft:#f8fafc;--green:#059669;--green-bg:#ecfdf5;--blue:#2563eb;--blue-bg:#eff6ff;--orange:#ea580c;--orange-bg:#fff7ed;--gray-bg:#f3f4f6;--red:#dc2626;--shadow:0 8px 24px rgba(15,23,42,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:linear-gradient(180deg,var(--nav),var(--nav2));color:#fff;padding:22px 16px;position:sticky;top:0;height:100vh}.logo{font-weight:800;font-size:18px;line-height:1.4;margin-bottom:22px}.logo span{display:block;font-size:12px;color:#cbd5e1;font-weight:500;margin-top:4px}.menu{display:grid;gap:8px}.menu a{display:block;color:#e5e7eb;text-decoration:none;padding:11px 12px;border-radius:10px;font-size:14px}.menu a.active,.menu a:hover{background:rgba(255,255,255,.12)}.main{min-width:0}.topbar{background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:14px;position:sticky;top:0;z-index:5}.topbar h1{font-size:22px;margin:0}.topbar p{margin:5px 0 0;color:var(--muted);font-size:13px}.userbox{font-size:13px;color:var(--muted);text-align:right}.userbox strong{color:var(--text)}.content{padding:22px 24px;max-width:1520px}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}.card-label{font-size:12px;color:var(--muted);margin-bottom:8px}.card-value{font-size:25px;font-weight:800}.card-value small{font-size:13px;color:var(--muted);font-weight:500}.toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}.toolbar-left,.toolbar-right{display:flex;gap:8px;flex-wrap:wrap}button,input,select,textarea{font:inherit}button,.btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:700;font-size:13px;text-decoration:none;display:inline-block}button:hover,.btn:hover{border-color:#93c5fd;background:#f8fbff}button.primary,.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn.primary:hover{background:var(--primary2)}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px}.panel-head{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center;background:#fff}.panel-head h2{font-size:17px;margin:0}.panel-head span{font-size:12px;color:var(--muted)}.form-grid{padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:var(--soft);border-bottom:1px solid var(--line)}.form-grid.three{grid-template-columns:repeat(3,1fr)}.field label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px;color:var(--text)}.field.wide{grid-column:span 3}.field.full{grid-column:1/-1}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;min-width:1120px}th,td{border-bottom:1px solid var(--line);padding:11px 10px;text-align:left;vertical-align:middle}th{background:#f8fafc;color:#475569;font-size:12px;white-space:nowrap}tbody tr:hover td{background:#f9fbff}.num{text-align:right;white-space:nowrap}.status{display:inline-flex;padding:4px 9px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}.s預り{background:var(--gray-bg);color:#374151}.s加工中{background:var(--blue-bg);color:var(--blue)}.s納品準備{background:var(--orange-bg);color:var(--orange)}.s納品済,.s請求済{background:var(--green-bg);color:var(--green)}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button,.actions .btn{padding:6px 8px;font-size:12px;border-radius:8px}.danger{color:var(--red)!important;border-color:#fecaca!important;background:#fff!important}.note{padding:14px 16px;color:#475569;font-size:13px;line-height:1.7;background:#fbfdff}.mail-row{cursor:pointer}.mail-row:hover td{background:#eef6ff!important}.hint{font-size:12px;color:#6b7280;margin-left:8px}.footer{color:var(--muted);font-size:12px;text-align:right;padding:2px 4px 18px}.logout{color:#fff;background:#475569;border-color:#475569;text-decoration:none;border-radius:8px;padding:8px 10px}.searchbar{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;padding:14px 16px;background:#fff;border-bottom:1px solid var(--line)}@media(max-width:1100px){.app{grid-template-columns:1fr}.sidebar{display:none}.cards{grid-template-columns:repeat(2,1fr)}.form-grid,.form-grid.three,.searchbar{grid-template-columns:repeat(2,1fr)}.field.wide{grid-column:span 2}}@media(max-width:640px){.cards{grid-template-columns:1fr}.form-grid,.form-grid.three,.searchbar{grid-template-columns:1fr}.field.wide{grid-column:span 1}}@media print{.sidebar,.topbar,.toolbar,.form-grid,.actions,.searchbar{display:none!important}.app{display:block}body{background:#fff}.content{padding:0}.panel,.card{box-shadow:none;border:1px solid #bbb}table{min-width:0;font-size:11px}th,td{padding:6px}}</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">M.T DICE<br>Processing Manager<span>実用版 v2</span></div>
+  <nav class="menu">
+    <a class="active" href="#">ダッシュボード</a>
+    <a href="#clients">取引先</a>
+    <a href="#ledger">預り品台帳</a>
+    <a href="/mail">メール受信箱</a><a href="#mail">メール履歴</a>
+    <a href="#files">添付資料</a>
+    <a href="#invoice">納品・請求</a>
+    <a href="/report" target="_blank">提出用レポート</a><a href="/payment_schedule" target="_blank">入金予定一覧</a>
+  </nav>
+</aside>
+<main class="main">
+<div class="topbar">
+  <div><h1>ジュエリー加工管理</h1><p>預り品・加工進捗・納品請求・メール履歴・添付資料管理</p></div>
+  <div class="userbox">確認者：<strong>野口修造</strong><br>最終更新：{{ updated }}　<a class="logout" href="/logout">ログアウト</a></div>
+</div>
+<div class="content">
+<div class="cards">
+  <div class="card"><div class="card-label">預り件数</div><div class="card-value">{{ total }}<small> 件</small></div></div>
+  <div class="card"><div class="card-label">加工中</div><div class="card-value">{{ progress }}<small> 件</small></div></div>
+  <div class="card"><div class="card-label">納品・請求済</div><div class="card-value">{{ done }}<small> 件</small></div></div>
+  <div class="card"><div class="card-label">全体請求予定額</div><div class="card-value">{{ amount|yen }}</div></div>
+  <div class="card"><div class="card-label">請求済対象額</div><div class="card-value">{{ due_amount|yen }}</div></div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-left">
+    <a class="btn primary" href="#addPanel">＋ 預り登録</a>
+    <a class="btn" href="/report" target="_blank">提出用レポート</a>
+    <a class="btn" href="/payment_schedule" target="_blank">入金予定一覧</a>
+    <a class="btn" href="/backup">バックアップCSV</a>
+    <a class="btn" href="/csv/items">台帳CSV</a>
+    <a class="btn" href="/csv/messages">履歴CSV</a>
+    <button onclick="window.print()">画面PDF/印刷</button>
+  </div>
+</div>
+
+<section class="panel">
+  <div class="panel-head"><div><h2>検索・絞り込み</h2><span>取引先・品目・管理番号・ステータスで検索できます</span></div></div>
+  <form class="searchbar" method="get" action="/dashboard">
+    <input name="q" placeholder="キーワード検索" value="{{ q }}">
+    <select name="status"><option value="">全ステータス</option>{% for s in statuses %}<option value="{{s}}" {% if status_filter==s %}selected{% endif %}>{{s}}</option>{% endfor %}</select>
+    <select name="client"><option value="">全取引先</option>{% for c in clients %}<option value="{{c.name}}" {% if client_filter==c.name %}selected{% endif %}>{{c.name}}</option>{% endfor %}</select>
+    <button class="primary">検索</button>
+  </form>
+</section>
+
+<section class="panel" id="clients">
+<div class="panel-head"><div><h2>取引先マスター</h2><span>担当者・連絡先・締日・入金サイトを管理</span></div></div>
+<form method="post" action="/add_client" class="form-grid">
+  <div class="field"><label>取引先名</label><input name="name"></div>
+  <div class="field"><label>担当者</label><input name="person"></div>
+  <div class="field"><label>メール</label><input name="email"></div>
+  <div class="field"><label>電話</label><input name="phone"></div>
+  <div class="field"><label>締日</label><input name="closing_day" value="月末"></div>
+  <div class="field"><label>入金サイト</label><input name="payment_site" value="翌月末"></div>
+  <div class="field wide"><label>メモ</label><input name="memo"></div>
+  <div class="field"><button class="primary">取引先を追加</button></div>
+</form>
+<div class="table-wrap"><table>
+<thead><tr><th>取引先</th><th>担当者</th><th>メール</th><th>電話</th><th>締日</th><th>入金サイト</th><th>メモ</th></tr></thead>
+<tbody>{% for c in clients %}<tr><td>{{c.name}}</td><td>{{c.person}}</td><td>{{c.email}}</td><td>{{c.phone}}</td><td>{{c.closing_day}}</td><td>{{c.payment_site}}</td><td>{{c.memo}}</td></tr>{% endfor %}</tbody>
+</table></div></section>
+
+<section class="panel" id="addPanel">
+<div class="panel-head"><div><h2>新規預り登録</h2><span>受注加工・預かり加工の内容を登録します</span></div></div>
+<form method="post" action="/add_item" class="form-grid">
+  <div class="field"><label>管理番号（空欄可）</label><input name="code" placeholder="自動採番"></div>
+  <div class="field"><label>取引先</label><input name="client" value="リベルタ"></div>
+  <div class="field"><label>品目</label><input name="item" value="18Kパーツ"></div>
+  <div class="field"><label>素材</label><input name="material" value="18K"></div>
+  <div class="field"><label>数量</label><input name="qty" type="number" value="6"></div>
+  <div class="field"><label>加工内容</label><input name="work" value="パーツ加工・仕上げ"></div>
+  <div class="field"><label>預り日</label><input name="date" value="2026/06/04"></div>
+  <div class="field"><label>予定納品日</label><input name="due" value="2026/06/30"></div>
+  <div class="field"><label>請求予定額（税込）</label><input name="amount" type="number" value="220000"></div>
+  <div class="field"><label>状態</label><select name="status">{% for s in statuses %}<option>{{s}}</option>{% endfor %}</select></div>
+  <div class="field wide"><label>メモ</label><input name="memo"></div>
+  <div class="field"><button class="primary">登録する</button></div>
+</form></section>
+
+<section class="panel" id="ledger">
+<div class="panel-head"><div><h2>預り品・加工進捗台帳</h2><span>ステータス変更ボタンで進捗を更新できます</span></div></div>
+<div class="table-wrap"><table>
+<thead><tr><th>管理番号</th><th>預り日</th><th>取引先</th><th>品目</th><th>素材</th><th>数量</th><th>加工内容</th><th>予定納品日</th><th>請求予定額</th><th>状態</th><th>確認者</th><th>操作</th></tr></thead>
+<tbody>{% for x in items %}
+<tr><td>{{x.code}}</td><td>{{x.date}}</td><td>{{x.client}}</td><td>{{x.item}}</td><td>{{x.material}}</td><td class="num">{{x.qty}}</td><td>{{x.work}}</td><td>{{x.due}}</td><td class="num">{{x.amount|yen}}</td><td><span class="status s{{x.status}}">{{x.status}}</span></td><td>{{x.checker}}</td><td><div class="actions"><a href="/status/{{x.code}}/加工中"><button type="button">加工中</button></a><a href="/status/{{x.code}}/納品準備"><button type="button">納品準備</button></a><a href="/status/{{x.code}}/納品済"><button type="button">納品済</button></a><a href="/status/{{x.code}}/請求済"><button type="button">請求済</button></a><a class="btn" href="/edit_item/{{x.code}}">編集</a><a class="btn" href="/document/delivery/{{x.code}}" target="_blank">納品書</a><a class="btn" href="/document/invoice/{{x.code}}" target="_blank">請求書</a><a class="btn danger" href="/delete_item/{{x.code}}" onclick="return confirm('削除しますか？')">削除</a></div></td></tr>
+{% endfor %}</tbody></table></div></section>
+
+<section class="panel" id="mail">
+<div class="panel-head"><div><h2>メール・連絡履歴 <span class="hint">※行をダブルクリックで詳細表示</span></h2><span>発注確認・納期確認・納品確認を案件ごとに記録</span></div></div>
+<form method="post" action="/add_message" class="form-grid three">
+  <div class="field"><label>日時</label><input name="date" placeholder="空欄なら現在時刻"></div>
+  <div class="field"><label>取引先</label><input name="client" value="リベルタ"></div>
+  <div class="field"><label>関連管理番号</label><input name="related_code" placeholder="MTD-202606-001"></div>
+  <div class="field"><label>分類</label><select name="kind"><option>受注確認</option><option>納期確認</option><option>納品確認</option><option>請求確認</option><option>その他</option></select></div>
+  <div class="field"><label>件名</label><input name="subject" value="加工内容確認の件"></div>
+  <div class="field"><label>担当者</label><input name="person" value="担当者"></div>
+  <div class="field"><label>添付資料名</label><input name="attachment_name" value="加工依頼書"></div>
+  <div class="field wide"><label>内容メモ</label><textarea name="body" rows="3">加工内容、数量、納品予定について確認済み。</textarea></div>
+  <div class="field"><button class="primary">履歴を追加</button></div>
+</form>
+<div class="table-wrap"><table><thead><tr><th>詳細</th><th>日時</th><th>取引先</th><th>関連番号</th><th>分類</th><th>件名</th><th>担当者</th><th>内容メモ</th><th>添付資料</th><th>操作</th></tr></thead>
+<tbody>{% for m in messages %}
+<tr class="mail-row" onclick="location.href='/message/{{m.id}}'" title="クリックで詳細を表示">
+  <td onclick="event.stopPropagation()"><a class="btn primary" href="/message/{{m.id}}">詳細</a></td>
+  <td>{{m.date}}</td>
+  <td>{{m.client}}</td>
+  <td>{{m.related_code}}</td>
+  <td>{{m.kind}}</td>
+  <td>{{m.subject}}</td>
+  <td>{{m.person}}</td>
+  <td>{{m.body}}</td>
+  <td>{{m.attachment_name}}</td>
+  <td onclick="event.stopPropagation()">
+    <div class="actions">
+      <a class="btn" href="/edit_message/{{m.id}}">編集</a>
+      <a class="btn danger" href="/delete_message/{{m.id}}" onclick="return confirm('削除しますか？')">削除</a>
+    </div>
+  </td>
+</tr>
+{% endfor %}</tbody></table></div></section>
+
+<section class="panel" id="files">
+<div class="panel-head"><div><h2>添付資料管理</h2><span>写真・PDF・請求書・納品書などを案件に紐付け</span></div></div>
+<form method="post" action="/upload_file" enctype="multipart/form-data" class="form-grid">
+  <div class="field"><label>管理番号</label><input name="item_code" placeholder="MTD-202606-001"></div>
+  <div class="field"><label>取引先</label><input name="client" value="リベルタ"></div>
+  <div class="field"><label>資料区分</label><select name="category"><option>加工写真</option><option>請求書</option><option>納品書</option><option>加工依頼書</option><option>メール写し</option><option>その他</option></select></div>
+  <div class="field"><label>ファイル</label><input type="file" name="file"></div>
+  <div class="field"><button class="primary">アップロード</button></div>
+</form>
+<div class="table-wrap"><table><thead><tr><th>登録日時</th><th>管理番号</th><th>取引先</th><th>区分</th><th>ファイル名</th></tr></thead><tbody>{% for f in files %}<tr><td>{{f.uploaded_at}}</td><td>{{f.item_code}}</td><td>{{f.client}}</td><td>{{f.category}}</td><td><a href="/uploads/{{f.stored_name}}" target="_blank">{{f.original_name}}</a></td></tr>{% endfor %}</tbody></table></div></section>
+
+<section class="panel" id="invoice">
+<div class="panel-head"><div><h2>納品・請求管理</h2><span>納品済・請求済の案件を請求予定として一覧化</span></div></div>
+<div class="table-wrap"><table><thead><tr><th>請求書番号</th><th>取引先</th><th>請求対象</th><th>入金予定日</th><th>請求額（税込）</th><th>状態</th></tr></thead>
+<tbody>{% for x in items if x.status in ["納品済","請求済"] %}<tr><td>{% if "ソラボル" in x.client %}MTD-SOL-202606{% else %}MTD-LIB-202606{% endif %}</td><td>{{x.client}}</td><td>{{x.item}} / {{x.work}}</td><td>{{x.due}}</td><td class="num">{{x.amount|yen}}</td><td><span class="status s{{x.status}}">{{x.status}}</span></td></tr>{% endfor %}</tbody></table></div>
+<div class="note"><strong>提出用説明メモ：</strong><br>ジュエリー案件は在庫販売ではなく、受注加工・預かり加工が中心のため、通常の在庫表ではなく、預り品台帳・加工進捗・納品請求管理にて管理しております。取引先との発注確認・納期確認・納品確認はメール・連絡履歴として案件ごとに記録しています。</div></section>
+
+<div class="footer">株式会社M.T DICE｜Jewelry Processing Management System practical v2</div>
+</div></main></div></body></html>

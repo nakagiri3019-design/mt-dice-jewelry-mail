@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>入金予定一覧</title>
+<style>
+body{font-family:"Noto Sans JP",sans-serif;margin:28px;color:#111}h1{font-size:22px;border-bottom:2px solid #111;padding-bottom:8px}.meta{text-align:right;color:#555;font-size:12px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{border:1px solid #bbb;padding:8px}th{background:#f2f2f2}.right{text-align:right}.total{font-weight:bold;background:#fafafa}button{padding:8px 12px}@media print{button{display:none}}</style>
+</head><body><button onclick="window.print()">PDF保存/印刷</button><div class="meta">出力日時：{{updated}}　確認者：野口修造</div><h1>入金予定一覧</h1>
+<table><thead><tr><th>入金予定日</th><th>取引先</th><th>管理番号</th><th>内容</th><th>金額</th><th>状態</th></tr></thead><tbody>
+{% for r in rows %}<tr><td>{{r.due}}</td><td>{{r.client}}</td><td>{{r.code}}</td><td>{{r.item}}</td><td class="right">{{r.amount|yen}}</td><td>{{r.status}}</td></tr>{% endfor %}
+<tr class="total"><td colspan="4">合計</td><td class="right">{{total|yen}}</td><td></td></tr>
+</tbody></table></body></html>

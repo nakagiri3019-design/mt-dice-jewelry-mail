@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>預り品編集</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f4f6f9;color:#1f2937;margin:0}
+.wrap{max-width:900px;margin:28px auto;background:#fff;border:1px solid #dbe2ea;border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(15,23,42,.08)}
+h1{margin:0 0 18px;font-size:22px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+label{font-size:12px;color:#6b7280;font-weight:700;display:block;margin-bottom:5px}
+input,select,textarea{width:100%;padding:10px;border:1px solid #dbe2ea;border-radius:9px;font:inherit}
+.full{grid-column:1/-1}.actions{margin-top:18px;display:flex;gap:10px}
+button,a{padding:10px 14px;border-radius:9px;text-decoration:none;font-weight:700}
+button{border:0;background:#2563eb;color:#fff}a{border:1px solid #dbe2ea;color:#1f2937;background:#fff}
+</style></head><body><div class="wrap">
+<h1>預り品編集：{{ item.code }}</h1>
+<form method="post" class="grid">
+<div><label>預り日</label><input name="date" value="{{item.date}}"></div>
+<div><label>取引先</label><input name="client" value="{{item.client}}"></div>
+<div><label>品目</label><input name="item" value="{{item.item}}"></div>
+<div><label>素材</label><input name="material" value="{{item.material}}"></div>
+<div><label>数量</label><input name="qty" type="number" value="{{item.qty}}"></div>
+<div><label>予定納品日/入金予定日</label><input name="due" value="{{item.due}}"></div>
+<div><label>請求予定額</label><input name="amount" type="number" value="{{item.amount}}"></div>
+<div><label>状態</label><select name="status">{% for s in statuses %}<option {% if item.status==s %}selected{% endif %}>{{s}}</option>{% endfor %}</select></div>
+<div><label>確認者</label><input name="checker" value="{{item.checker}}"></div>
+<div class="full"><label>加工内容</label><input name="work" value="{{item.work}}"></div>
+<div class="full"><label>メモ</label><textarea name="memo" rows="4">{{item.memo}}</textarea></div>
+<div class="actions full"><button>保存</button><a href="/dashboard">戻る</a></div>
+</form></div></body></html>

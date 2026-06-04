@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>メール詳細</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;background:#f4f6f9;color:#1f2937;margin:0}
+.wrap{max-width:980px;margin:28px auto;padding:0 16px}
+.card{background:#fff;border:1px solid #dbe2ea;border-radius:16px;box-shadow:0 8px 24px rgba(15,23,42,.08);overflow:hidden;margin-bottom:16px}
+.head{padding:18px 20px;border-bottom:1px solid #dbe2ea;background:#fff;display:flex;justify-content:space-between;gap:16px}
+h1{font-size:22px;margin:0}.muted{color:#6b7280;font-size:13px}
+.body{padding:20px}.grid{display:grid;grid-template-columns:160px 1fr;gap:10px 16px;font-size:14px}.label{color:#6b7280;font-weight:700}
+.content{white-space:pre-wrap;line-height:1.8;background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin-top:12px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn,button{border:1px solid #dbe2ea;background:#fff;color:#1f2937;border-radius:9px;padding:9px 12px;text-decoration:none;font-weight:700;font-size:13px}.primary{background:#2563eb;color:#fff;border-color:#2563eb}.danger{color:#dc2626;border-color:#fecaca}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{border-bottom:1px solid #e5e7eb;padding:10px;text-align:left}th{background:#f8fafc;color:#475569}
+@media print{.actions,.top-actions{display:none}.wrap{margin:0;max-width:none}.card{box-shadow:none;border:1px solid #aaa}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-actions actions" style="margin-bottom:12px">
+    <a class="btn" href="/dashboard#mail">戻る</a>
+    <a class="btn" href="/edit_message/{{message.id}}">編集</a>
+    <button onclick="window.print()">PDF保存/印刷</button>
+  </div>
+
+  <div class="card">
+    <div class="head">
+      <div>
+        <h1>{{ message.subject }}</h1>
+        <div class="muted">{{ message.date }}　｜　{{ message.client }}　｜　{{ message.kind }}</div>
+      </div>
+      <div class="actions">
+        <span class="btn">関連番号：{{ message.related_code or "未設定" }}</span>
+      </div>
+    </div>
+    <div class="body">
+      <div class="grid">
+        <div class="label">取引先</div><div>{{ message.client }}</div>
+        <div class="label">担当者</div><div>{{ message.person }}</div>
+        <div class="label">分類</div><div>{{ message.kind }}</div>
+        <div class="label">添付資料名</div><div>{{ message.attachment_name }}</div>
+      </div>
+      <div class="content">{{ message.body }}</div>
+    </div>
+  </div>
+
+  {% if related_item %}
+  <div class="card">
+    <div class="head"><h1>関連する加工案件</h1></div>
+    <div class="body">
+      <table>
+        <tr><th>管理番号</th><th>取引先</th><th>品目</th><th>加工内容</th><th>予定日</th><th>金額</th><th>状態</th></tr>
+        <tr>
+          <td>{{ related_item.code }}</td><td>{{ related_item.client }}</td><td>{{ related_item.item }}</td>
+          <td>{{ related_item.work }}</td><td>{{ related_item.due }}</td><td>{{ related_item.amount|yen }}</td><td>{{ related_item.status }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <div class="head"><h1>関連添付資料</h1><div class="muted">同じ管理番号または取引先に紐づく資料</div></div>
+    <div class="body">
+      <table>
+        <tr><th>登録日時</th><th>管理番号</th><th>区分</th><th>ファイル名</th></tr>
+        {% for f in related_files %}
+        <tr><td>{{f.uploaded_at}}</td><td>{{f.item_code}}</td><td>{{f.category}}</td><td><a href="/uploads/{{f.stored_name}}" target="_blank">{{f.original_name}}</a></td></tr>
+        {% else %}
+        <tr><td colspan="4">関連資料はまだ登録されていません。</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
